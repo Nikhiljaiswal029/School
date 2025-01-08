@@ -1,34 +1,52 @@
 import java.util.*;
 import java.util.Scanner;
 
+// start student
+
 class Student {
     String name;
     int rollNumber;
     String location;
-    double feesPaid;
+    int standard;
+    String division;
 
     // Constructor
 
-    Student(String name, int rollNumber, String location) {
+    Student(String name, int rollNumber, String location, int standard, String division) {
         this.name = name;
         this.rollNumber = rollNumber;
         this.location = location;
-        this.feesPaid = 0.0;
+        this.standard = standard;
+        this.division = division;
     }
 }
+
+// end studend
+
+// class teacher {
+// char name;
+// String[] subjects_teaching;
+// String qualification;
+// int class_assigned;
+// }
+
+// start school
 
 public class School {
     Student[] arry = new Student[10];
     int choice = 0;
+    String store;
 
     void onlinelist() {
+
         do {
+
             Scanner scanner = new Scanner(System.in);
             System.out.println("\nSchool Admission System");
             System.out.println("1. Add Student");
             System.out.println("2. Remove Student");
-            System.out.println("3. Pay Fees");
-            System.out.println("4. Display All Students");
+            System.out.println("3. Student std");
+            System.out.println("4. teacher");
             System.out.println("5. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
@@ -44,11 +62,11 @@ public class School {
                     break;
 
                 case 3:
-                    payFees();
+                    Student_std();
                     break;
 
                 case 4:
-                    displayStudents();
+                    teacher();
                     break;
 
                 case 5:
@@ -60,10 +78,14 @@ public class School {
                     break;
 
             }
-        } while (choice != 5);
+        }
+
+        while (choice != 5);
+
     }
 
     // Add a new student
+
     void addStudent() {
 
         Scanner sc = new Scanner(System.in);
@@ -77,20 +99,48 @@ public class School {
         System.out.println("Enter Rollnumber....");
         int rollNumber = sc.nextInt();
 
-        Student addStudent = new Student(name, rollNumber, location);
-      
+        System.out.println("Enter Standard....");
+        int standard = sc.nextInt();
+
+        System.out.println("Enter Division....");
+        String division = sc.next();
+
+        Student addStudent = new Student(name, rollNumber, location, standard, division);
 
     }
 
     // Remove a student by roll number
 
     void removeStudent() {
-        System.out.println();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter student name....");
+        String name = sc.nextLine();
+
+        System.out.println("Enter location....");
+        String location = sc.nextLine();
+
+        System.out.println("Enter Rollnumber....");
+        int rollNumber = sc.nextInt();
+
+        System.out.println("Enter Standard....");
+        int standard = sc.nextInt();
+
+        System.out.println("Enter Division....");
+        String division = sc.next();
+
+        Student removeStudent = new Student(name, rollNumber, location, standard, division);
     }
 
-    // Pay fees for a student
+    // display all Student_std
 
-    void payFees() {
+    void Student_std() {
+
+    }
+
+    // display all teacher
+
+    void teacher() {
         System.out.println();
     }
 
